@@ -28,21 +28,30 @@
 <p>******************************</p>
 <p><strong>1) Собираем стенд для задания с использованием Vagrant и Ansible</strong></p>
 <p><span style="font-weight: 400;">Создадим директорию <strong>task18</strong>, а в ней Vagrantfile для создания двух виртуальных машин:</span></p>
-<p><span style="font-weight: 400;"><strong>backup</strong> IP 192.168.56.160 </span><span style="font-weight: 400;">Ubuntu 24.04</span></p>
-<p><span style="font-weight: 400;"><strong>client</strong> IP 192.168.56.150 Ubuntu 24.04</span></p>
+<p><span style="font-weight: 400;"><strong>backup</strong> IP <strong>192.168.56.160</strong> </span><span style="font-weight: 400;">Ubuntu 24.04</span></p>
+<p><span style="font-weight: 400;"><strong>client</strong> IP <strong>192.168.56.150</strong> Ubuntu 24.04</span></p>
 <img width="1349" height="910" alt="image" src="https://github.com/user-attachments/assets/442d8e23-b5cf-4f9a-9846-ec08ac06ffdd" />
 <p>&nbsp;</p>
-<p><span style="font-weight: 400;">Файл создает две ВМ, назначает им IP и hostname, а также добавляет на машину backup второй диск /dev/sdb размером 4 Gb, после чего запускает ansible-плейбук с дальнейшими настройками. Vagrant-файл прикладываю сюда.</span></p>
+<p><span style="font-weight: 400;">Файл создает две ВМ, назначает им IP и hostname, а также добавляет на машину <strong>backup</strong> второй диск <strong>/dev/sdb</strong> размером 4 Gb, после чего запускает ansible-плейбук с дальнейшими настройками. Vagrant-файл прикладываю сюда.</span></p>
 <p><span style="font-weight: 400;">Создадим также плейбук playbook.yaml для настройки виртуальных машин:</span></p>
 <img width="752" height="967" alt="image" src="https://github.com/user-attachments/assets/3ebc9bca-c786-4e49-bd23-0ba4082eae1a" />
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Плейбук выполняет следующие задачи:</span></p>
-<p><span style="font-weight: 400;">- устанавливает на обе ВМ пакет borgbackup;</span></p>
-<p><span style="font-weight: 400;">- создает на обеих ВМ пользователя borg с паролем Otus1234;</span></p>
-<p><span style="font-weight: 400;">- на ВМ backup создает директорию /var/backup;</span></p>
-<p><span style="font-weight: 400;">- на ВМ backup создает раздел на диске /dev/sdb с файловой системой ext4 и монтирует его в директорию /var/backup.</span></p>
+<p><span style="font-weight: 400;">- устанавливает на обе ВМ пакет <strong>borgbackup</strong>;</span></p>
+<p><span style="font-weight: 400;">- создает на обеих ВМ пользователя <strong>borg</strong> с паролем <strong>Otus1234</strong>;</span></p>
+<p><span style="font-weight: 400;">- на ВМ <strong>backup</strong> создает директорию <strong>/var/backup</strong>;</span></p>
+<p><span style="font-weight: 400;">- на ВМ <strong>backup</strong> создает раздел на диске <strong>/dev/sdb</strong> с файловой системой ext4 и монтирует его в директорию <strong>/var/backup</strong>.</span></p>
 <p><span style="font-weight: 400;">Плейбук также прикладываю сюда.</span></p>
 <p><span style="font-weight: 400;">После запуска и выполнения команды <code>vagrant up</code> (может занять какое-то время, в случае ошибки можно запустить повторно <code>vagrant up</code> или <code>vagrant provision</code> в зависимости от этапа выполнения*) увидим в VirtualBox две машины:</span></p>
 <img width="982" height="502" alt="image" src="https://github.com/user-attachments/assets/30ca0fcc-b6fb-4a52-9463-d643291260cc" />
 <p><span style="font-weight: 400;"><em>*иногда при выполнении почему-то зависает - возможно, из-за обходного решения.</em></span></p>
-<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Проверим наши настройки:</span></p>
+
+
+
+
+
+
+
+
+
