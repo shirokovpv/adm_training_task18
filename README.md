@@ -45,13 +45,22 @@
 <p><span style="font-weight: 400;">После запуска и выполнения команды <code>vagrant up</code> (может занять какое-то время, в случае ошибки можно запустить повторно <code>vagrant up</code> или <code>vagrant provision</code> в зависимости от этапа выполнения*) увидим в VirtualBox две машины:</span></p>
 <img width="982" height="502" alt="image" src="https://github.com/user-attachments/assets/30ca0fcc-b6fb-4a52-9463-d643291260cc" />
 <p><span style="font-weight: 400;"><em>*иногда при выполнении почему-то зависает - возможно, из-за обходного решения.</em></span></p>
-<p><span style="font-weight: 400;">Проверим наши настройки:</span></p>
-
-
-
-
-
-
+<p><span style="font-weight: 400;">Проверим настройки клиента:</span></p>
+<p><span style="font-weight: 400;"><code>ssh borg@192.168.56.150</code></span></p>
+<p><span style="font-weight: 400;"><code>pwd</code></span></p>
+<p><span style="font-weight: 400;"><code>whoami</code></span></p>
+<p><span style="font-weight: 400;"><code>apt list borgbackup</code></span></p>
+<img width="826" height="647" alt="image" src="https://github.com/user-attachments/assets/a846f535-b1fc-4530-bfa3-baf976223b89" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Проверим настройки сервера:</span></p>
+<p><span style="font-weight: 400;"><code>ssh borg@192.168.56.160</code></span></p>
+<p><span style="font-weight: 400;"><code>pwd</code></span></p>
+<p><span style="font-weight: 400;"><code>whoami</code></span></p>
+<p><span style="font-weight: 400;"><code>apt list borgbackup</code></span></p>
+<p><span style="font-weight: 400;"><code>lsblk</code></span></p>
+<img width="826" height="847" alt="image" src="https://github.com/user-attachments/assets/f73e0869-aeae-4bb5-929e-239075f92191" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Пользователь есть, заходит, домашний каталог есть, пакет установлен, на сервере диск примонтирован куда надо. Стенд собран.</span></p>
 
 
 
