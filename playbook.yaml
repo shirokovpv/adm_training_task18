@@ -1,0 +1,51 @@
+---
+- name: Install borgbackup # Установить пакет
+  hosts: backup, client
+  become: yes # Запускать задачи с привилегиями root/sudo
+  tasks:
+    - name: update
+      apt:
+        update_cache=yes
+      tags:
+        - update apt
+    - name: borg
+      apt:
+        name: borgbackup
+        state: latest
+- name: Create user # Создать пользователя
+  hosts: backup, client
+  become: yes  # Запускать задачи с привилегиями root/sudo
+  tasks: 
+    - name: Create user
+      user:
+        name: borg  # Имя пользователя
+        password: "{{ 'Otus1234' | password_hash('sha512') }}"  # Зашифрованный пароль
+        state: present  # Убедиться, что пользователь создан
+        createhome: yes  # Создать домашний каталог пользователя
+- name: Create directory # Создать каталог
+  hosts: backup
+  become: yes # Запускать задачи с привилегиями root/sudo
+  tasks:
+    - name: Create a directory
+      file:
+        path: /var/backup
+        state: directory
+- name: Mount second disk # Монтирование второго диска
+  hosts: backup
+  become: yes # Запускать задачи с привилегиями root/sudo
+  tasks:
+    - name: Create partition
+      parted:
+        device: /dev/sdb
+        number: 1
+        state: present
+    - name: Create filesystem
+      filesystem:
+        fstype: ext4
+        dev: /dev/sdb1
+    - name: Mount
+      mount:
+        fstype: ext4
+        src: /dev/sdb1
+        path: /var/backup
+        state: mounted
