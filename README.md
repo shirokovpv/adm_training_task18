@@ -61,6 +61,21 @@
 <img width="826" height="847" alt="image" src="https://github.com/user-attachments/assets/f73e0869-aeae-4bb5-929e-239075f92191" />
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Пользователь есть, заходит, домашний каталог есть, пакет установлен, на сервере диск примонтирован куда надо. Стенд собран.</span></p>
+<p><strong>2) Настраиваем бэкап</strong></p>
+<p><span style="font-weight: 400;">Заходим под root-пользователем на сервер</span></p>
+<p><span style="font-weight: 400;"><code>vagrant ssh backup</code></span></p>
+<p><span style="font-weight: 400;"><code>sudo -i</code></span></p>
+<p><span style="font-weight: 400;">Назначаем на каталог <strong>/var/backup</strong> права пользователя <strong>borg</strong></span></p>
+<p><span style="font-weight: 400;"><code>chown borg:borg /var/backup/</code></span></p>
+<p><span style="font-weight: 400;">Переходим под пользователя <strong>borg</strong> и создаем каталог <strong>~/.ssh/authorized_keys</strong> в каталоге <strong>/home/borg</strong></span></p>
+<p><span style="font-weight: 400;"><code>su - borg</code></span></p>
+<p><span style="font-weight: 400;"><code>mkdir .ssh</code></span></p>
+<p><span style="font-weight: 400;"><code>touch .ssh/authorized_keys</code></span></p>
+<p><span style="font-weight: 400;"><code>chmod 700 .ssh</code></span></p>
+<p><span style="font-weight: 400;"><code>chmod 600 .ssh/authorized_keys</code></span></p>
+
+
+
 
 
 
