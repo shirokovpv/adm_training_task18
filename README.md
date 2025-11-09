@@ -108,6 +108,19 @@
 <p><span style="font-weight: 400;"><code>borg list borg@192.168.56.160:/var/backup/</code></span></p>
 <img width="805" height="101" alt="image" src="https://github.com/user-attachments/assets/d810fbc5-4d79-430d-bff8-992bc1fcf31e" />
 <p>&nbsp;</p>
+<p><span style="font-weight: 400;">Смотрим список файлов в архиве:</span></p>
+<p><span style="font-weight: 400;"><code>borg list borg@192.168.56.160:/var/backup/::etc-2025-11-09_13:54:31</code></span></p>
+<img width="805" height="472" alt="image" src="https://github.com/user-attachments/assets/d4f172f0-e636-49ee-aaf7-bd1f8f2b7552" />
+<p>......</p>
+<img width="805" height="312" alt="image" src="https://github.com/user-attachments/assets/7ac98857-e662-4326-9c7b-a21bf0ad0e3f" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Восстановим файл из бэкапа:</span></p>
+<p><span style="font-weight: 400;"><code>borg extract borg@192.168.56.160:/var/backup/::etc-2025-11-09_13:54:31 etc/hostname</code></span></p>
+<img width="805" height="63" alt="image" src="https://github.com/user-attachments/assets/7f84106f-4d4d-455f-a358-7dbc59002fcb" />
+<p><span style="font-weight: 400;">Файл восстановлен без ошибок.</span></p>
+<p><strong>3) Автоматизируем создание бэкапов с помощью systemd</strong></p>
+<p><span style="font-weight: 400;">Создаем сервис и таймер в каталоге <strong>/etc/systemd/system/</strong> из-под root-пользователя:</span></p>
+<p><span style="font-weight: 400;"><code>nano /etc/systemd/system/borg-backup.service</code></span></p>
 
 
 
