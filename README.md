@@ -62,3 +62,40 @@
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Пользователь есть, заходит, домашний каталог есть, пакет установлен, на сервере диск примонтирован куда надо. Стенд собран.</span></p>
 <p><strong>2) Настраиваем бэкап</strong></p>
+<p><span style="font-weight: 400;">На сервере <strong>backup</strong> назначаем на каталог <strong>/var/backup</strong> права пользователя <strong>borg</strong>:</span></p>
+<p><span style="font-weight: 400;"><code>vagrant ssh backup</code></span></p>
+<p><span style="font-weight: 400;"><code>sudo -i</code></span></p>
+<p><span style="font-weight: 400;"><code>chown borg:borg /var/backup/</code></span></p>
+<img width="665" height="424" alt="image" src="https://github.com/user-attachments/assets/a4b9f3d8-4516-42d2-8b3c-304df4def0d3" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Убедимся, что каталог <strong>/var/backup</strong> пуст. Если в нем что-то есть, нужно все удалить, иначе borg может выдать ошибку:</span></p>
+<p><span style="font-weight: 400;"><code>cd /var/backup</code></span></p>
+<p><span style="font-weight: 400;"><code>ll</code></span></p>
+<img width="463" height="123" alt="image" src="https://github.com/user-attachments/assets/fc9d6792-7f47-456f-ac4d-0d4d97f0b7cd" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">На сервере <strong>backup</strong> создаем каталог <strong>~/.ssh/authorized_keys</strong> в каталоге <strong>/home/borg</strong></span></p>
+<p><span style="font-weight: 400;"><code>su - borg</code></span></p>
+<p><span style="font-weight: 400;"><code>mkdir .ssh</code></span></p>
+<p><span style="font-weight: 400;"><code>touch .ssh/authorized_keys</code></span></p>
+<p><span style="font-weight: 400;"><code>chmod 700 .ssh</code></span></p>
+<p><span style="font-weight: 400;"><code>chmod 600 .ssh/authorized_keys</code></span></p>
+<img width="463" height="123" alt="image" src="https://github.com/user-attachments/assets/d407682f-268f-42e3-89e0-3fa562c5349c" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">На ВМ <strong>client</strong> заходим под пользователем <strong>borg</strong> и генерируем ключ без пароля:</span></p>
+<p><span style="font-weight: 400;"><code>vagrant ssh client</code></span></p>
+<p><span style="font-weight: 400;"><code>su - borg</code></span></p>
+<p><span style="font-weight: 400;"><code>ssh-keygen</code></span></p>
+<img width="810" height="416" alt="image" src="https://github.com/user-attachments/assets/fdc937ed-a55f-42dc-b7b9-ba17f3f885df" />
+<p><span style="font-weight: 400;">*Overwrite (y/n)? y - спрашивает, потому что сначала сгенерировал ключ с паролем, а нам так не надо.</span></p>
+<p><span style="font-weight: 400;">Копируем открытый ключ на сервер <strong>backup</strong></span></p>
+<p><span style="font-weight: 400;"><code>ssh-copy-id borg@192.168.56.160</code></span></p>
+<img width="810" height="340" alt="image" src="https://github.com/user-attachments/assets/c6203213-7da5-41f8-b36d-8ca5889b0a36" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Проверяем доступ на сервер <strong>backup</strong></span></p>
+<p><span style="font-weight: 400;"><code>ssh borg@192.168.56.160</code></span></p>
+<img width="647" height="387" alt="image" src="https://github.com/user-attachments/assets/2cdcddc8-5f91-4065-8697-215b66b04a08" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Зашли. Пароль не запрашивает, это нам понадобится для запуска автоматического задания.</span></p>
+
+
+
