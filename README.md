@@ -96,8 +96,7 @@
 <p><span style="font-weight: 400;"><code>borg list borg@192.168.56.160:/var/backup/::etc-2025-11-09_09:37:19</code></span></p>
 <img width="834" height="338" alt="image" src="https://github.com/user-attachments/assets/b284b3ea-005b-482d-abdf-9aed96468e85" />
 <p>......</p>
-<img width="834" height="224" alt=<p><span style="font-weight: 400;"><code>su - borg</code></span></p>
-<p><span style="font-weight: 400;"><code>mkdir .ssh</code></span></p>"image" src="https://github.com/user-attachments/assets/8efb7fe7-0655-4740-8100-c082eb3fc82c" />
+<img width="834" height="338" alt="image" src="https://github.com/user-attachments/assets/8efb7fe7-0655-4740-8100-c082eb3fc82c" />
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Достаем файл из бэкапа:</span></p>
 <p><span style="font-weight: 400;"><code>borg extract borg@192.168.56.160:/var/backup/::etc-2025-11-09_09:37:19 etc/hostname</code></span></p>
