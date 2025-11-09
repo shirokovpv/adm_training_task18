@@ -34,7 +34,7 @@
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Файл создает две ВМ, назначает им IP и hostname, а также добавляет на машину <strong>backup</strong> второй диск <strong>/dev/sdb</strong> размером 4 Gb, после чего запускает ansible-плейбук с дальнейшими настройками. Vagrant-файл прикладываю сюда.</span></p>
 <p><span style="font-weight: 400;">Создадим также плейбук playbook.yaml для настройки виртуальных машин:</span></p>
-<img width="752" height="967" alt="image" src="https://github.com/user-attachments/assets/3ebc9bca-c786-4e49-bd23-0ba4082eae1a" />
+<img width="735" height="981" alt="image" src="https://github.com/user-attachments/assets/3eca63d5-fed6-489a-bc70-0521d86cb469" />
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Плейбук выполняет следующие задачи:</span></p>
 <p><span style="font-weight: 400;">- устанавливает на обе ВМ пакет <strong>borgbackup</strong>;</span></p>
@@ -42,15 +42,15 @@
 <p><span style="font-weight: 400;">- на ВМ <strong>backup</strong> создает директорию <strong>/var/backup</strong>;</span></p>
 <p><span style="font-weight: 400;">- на ВМ <strong>backup</strong> создает раздел на диске <strong>/dev/sdb</strong> с файловой системой ext4 и монтирует его в директорию <strong>/var/backup</strong>.</span></p>
 <p><span style="font-weight: 400;">Плейбук также прикладываю сюда.</span></p>
-<p><span style="font-weight: 400;">После запуска и выполнения команды <code>vagrant up</code> (может занять какое-то время, в случае ошибки можно запустить повторно <code>vagrant up</code> или <code>vagrant provision</code> в зависимости от этапа выполнения*) увидим в VirtualBox две машины:</span></p>
-<img width="982" height="502" alt="image" src="https://github.com/user-attachments/assets/30ca0fcc-b6fb-4a52-9463-d643291260cc" />
-<p><span style="font-weight: 400;"><em>*Иногда при выполнении почему-то зависает - возможно, из-за обходного решения. При зависшей ВМ с ошибкой UNREACHABLE можно ее удалить командой <code>vagrant destroy</code></em></span></p>
+<p><span style="font-weight: 400;">После запуска и выполнения команды <code>vagrant up</code> увидим в VirtualBox две машины:</span></p>
+<img width="976" height="508" alt="image" src="https://github.com/user-attachments/assets/96c4ae80-968e-4126-898e-ba53949fe055" />
+<p>&nbsp;</p>
 <p><span style="font-weight: 400;">Проверим настройки клиента:</span></p>
 <p><span style="font-weight: 400;"><code>ssh borg@192.168.56.150</code></span></p>
 <p><span style="font-weight: 400;"><code>pwd</code></span></p>
 <p><span style="font-weight: 400;"><code>whoami</code></span></p>
 <p><span style="font-weight: 400;"><code>apt list borgbackup</code></span></p>
-<img width="826" height="647" alt="image" src="https://github.com/user-attachments/assets/a846f535-b1fc-4530-bfa3-baf976223b89" />
+<img width="664" height="654" alt="image" src="https://github.com/user-attachments/assets/61ef2e6f-0505-445d-af05-ef4e9e42f939" />
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Проверим настройки сервера:</span></p>
 <p><span style="font-weight: 400;"><code>ssh borg@192.168.56.160</code></span></p>
@@ -58,7 +58,7 @@
 <p><span style="font-weight: 400;"><code>whoami</code></span></p>
 <p><span style="font-weight: 400;"><code>apt list borgbackup</code></span></p>
 <p><span style="font-weight: 400;"><code>lsblk</code></span></p>
-<img width="826" height="847" alt="image" src="https://github.com/user-attachments/assets/f73e0869-aeae-4bb5-929e-239075f92191" />
+<img width="665" height="815" alt="image" src="https://github.com/user-attachments/assets/52cf01e6-e96b-420d-819f-beb11686b53d" />
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Пользователь есть, заходит, домашний каталог есть, пакет установлен, на сервере диск примонтирован куда надо. Стенд собран.</span></p>
 <p><strong>2) Настраиваем бэкап</strong></p>
