@@ -117,6 +117,6 @@
 <p><span style="font-weight: 400;"><code>systemctl start borg-backup.timer</code></span></p>
 <img width="827" height="119" alt="image" src="https://github.com/user-attachments/assets/703906f9-df22-4a37-b928-23534b85322b" />
 <p>&nbsp;</p>
-
+<p><span style="font-weight: 400;">Проверяем работу таймера:</span></p>
 
 
