@@ -3,13 +3,16 @@ Description=Borg Backup
 
 [Service]
 Type=oneshot
-
+User=borg
 # Парольная фраза
 Environment="BORG_PASSPHRASE=Otus1234"
 # Репозиторий
 Environment="REPO=borg@192.168.56.160:/var/backup/"
 # Что бэкапим
 Environment="BACKUP_TARGET=/etc"
+
+# Доступ на чтение к системным файлам
+AmbientCapabilities=CAP_DAC_READ_SEARCH
 
 # Создание бэкапа
 ExecStart=/bin/borg create --stats ${REPO}::etc-{now:%%Y-%%m-%%d_%%H:%%M:%%S} ${BACKUP_TARGET}
