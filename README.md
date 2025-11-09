@@ -133,8 +133,12 @@
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Проверяем работу таймера:</span></p>
 <p><span style="font-weight: 400;"><code>systemctl list-timers --all</code></span></p>
-<img width="805" height="352" alt="image" src="https://github.com/user-attachments/assets/1d2f1c7e-80c6-479b-985a-c23dbee9bae7" />
+<img width="805" height="358" alt="image" src="https://github.com/user-attachments/assets/2502c7d4-a3eb-4637-9753-f1066a8732a4" />
 <p>&nbsp;</p>
-
-
+<p><span style="font-weight: 400;">Ждем некоторое время и смотрим бэкапы:</span></p>
+<p><span style="font-weight: 400;"><code>su - borg</code></span></p>
+<p><span style="font-weight: 400;"><code>borg list borg@192.168.56.160:/var/backup/</code></span></p>
+<img width="805" height="154" alt="image" src="https://github.com/user-attachments/assets/cf79708d-db26-473a-919a-52ea818263f2" />
+<img width="805" height="154" alt="image" src="https://github.com/user-attachments/assets/f2dce3bf-07bf-49d9-84d1-e32e0da12b29" />
+<p><span style="font-weight: 400;">Время копирования меняется, таймер работает. Задание завершено.</span></p>
 
