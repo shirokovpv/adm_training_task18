@@ -22,6 +22,7 @@
         password: "{{ 'Otus1234' | password_hash('sha512') }}"  # Зашифрованный пароль
         state: present  # Убедиться, что пользователь создан
         createhome: yes  # Создать домашний каталог пользователя
+        shell: "/bin/bash" #Оболочка
 - name: Create directory # Создать каталог
   hosts: backup
   become: yes # Запускать задачи с привилегиями root/sudo
