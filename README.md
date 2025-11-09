@@ -106,7 +106,7 @@
 <p><strong>3) Автоматизируем создание бэкапов с помощью systemd</strong></p>
 <p><span style="font-weight: 400;">Создаем сервис и таймер в каталоге <strong>/etc/systemd/system/</strong></span></p>
 <p><span style="font-weight: 400;"><code>nano /etc/systemd/system/borg-backup.service</code></span></p>
-<img width="678" height="652" alt="image" src="https://github.com/user-attachments/assets/e72106ec-43dd-49ae-8e47-f4e1844d2fcd" />
+<img width="952" height="517" alt="image" src="https://github.com/user-attachments/assets/7d7bf220-20dc-436a-8182-0f078cca7065" />
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;"><code>nano /etc/systemd/system/borg-backup.timer</code></span></p>
 <img width="678" height="231" alt="image" src="https://github.com/user-attachments/assets/749e9032-5441-4d83-a5ed-83b52e14fa5c" />
