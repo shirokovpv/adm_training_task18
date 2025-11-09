@@ -121,7 +121,20 @@
 <p><strong>3) Автоматизируем создание бэкапов с помощью systemd</strong></p>
 <p><span style="font-weight: 400;">Создаем сервис и таймер в каталоге <strong>/etc/systemd/system/</strong> из-под root-пользователя:</span></p>
 <p><span style="font-weight: 400;"><code>nano /etc/systemd/system/borg-backup.service</code></span></p>
-
+<p><span style="font-weight: 400;"><code>nano /etc/systemd/system/borg-backup.timer</code></span></p>
+<img width="805" height="479" alt="image" src="https://github.com/user-attachments/assets/8ef5ed1c-d08f-44ab-ada9-797e46cbd47d" />
+<img width="805" height="205" alt="image" src="https://github.com/user-attachments/assets/0cab194a-8d5a-4fb7-af14-6373fde6237e" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Файлы сервиса и таймера прикладываю сюда.</span></p>
+<p><span style="font-weight: 400;">Включаем и запускаем службу таймера:</span></p>
+<p><span style="font-weight: 400;"><code>systemctl enable borg-backup.timer</code></span></p>
+<p><span style="font-weight: 400;"><code>systemctl start borg-backup.timer</code></span></p>
+<img width="805" height="100" alt="image" src="https://github.com/user-attachments/assets/7e8eb6c9-9790-4106-9dc8-52dbab815b4c" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Проверяем работу таймера:</span></p>
+<p><span style="font-weight: 400;"><code>systemctl list-timers --all</code></span></p>
+<img width="805" height="352" alt="image" src="https://github.com/user-attachments/assets/1d2f1c7e-80c6-479b-985a-c23dbee9bae7" />
+<p>&nbsp;</p>
 
 
 
