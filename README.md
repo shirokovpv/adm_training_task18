@@ -81,7 +81,7 @@
 <p><span style="font-weight: 400;"><code>chmod 600 .ssh/authorized_keys</code></span></p>
 <img width="463" height="123" alt="image" src="https://github.com/user-attachments/assets/d407682f-268f-42e3-89e0-3fa562c5349c" />
 <p>&nbsp;</p>
-<p><span style="font-weight: 400;">На ВМ <strong>client</strong> заходим под пользователем <strong>borg</strong> и генерируем ключ без пароля:</span></p>
+<p><span style="font-weight: 400;">На ВМ <strong>client</strong> заходим под пользователем <strong>borg</strong> и генерируем ключ без пароля (на запросе пароля просто жмем Enter):</span></p>
 <p><span style="font-weight: 400;"><code>vagrant ssh client</code></span></p>
 <p><span style="font-weight: 400;"><code>su - borg</code></span></p>
 <p><span style="font-weight: 400;"><code>ssh-keygen</code></span></p>
@@ -96,6 +96,19 @@
 <img width="647" height="387" alt="image" src="https://github.com/user-attachments/assets/2cdcddc8-5f91-4065-8697-215b66b04a08" />
 <p>&nbsp;</p>
 <p><span style="font-weight: 400;">Зашли. Пароль не запрашивает, это нам понадобится для запуска автоматического задания.</span></p>
+<p><span style="font-weight: 400;">Все дальнейшие действия будут проходить на ВМ <strong>client</strong>. Инициализируем репозиторий borg на сервере с клиента (ставим пароль <strong>Otus1234</strong>):</span></p>
+<p><span style="font-weight: 400;"><code>borg init --encryption=repokey borg@192.168.56.160:/var/backup/</code></span></p>
+<img width="805" height="405" alt="image" src="https://github.com/user-attachments/assets/3edbe9ce-050b-4011-8b39-ecc2dc565b77" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Запускаем для проверки создания бэкапа:</span></p>
+<p><span style="font-weight: 400;"><code>borg create --stats --list borg@192.168.56.160:/var/backup/::"etc-{now:%Y-%m-%d_%H:%M:%S}" /etc</code></span></p>
+<img width="805" height="325" alt="image" src="https://github.com/user-attachments/assets/67180b34-3f54-480f-a93a-a8bc42a21bf9" />
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Смотрим, что у нас получилось:</span></p>
+<p><span style="font-weight: 400;"><code>borg list borg@192.168.56.160:/var/backup/</code></span></p>
+<img width="805" height="101" alt="image" src="https://github.com/user-attachments/assets/d810fbc5-4d79-430d-bff8-992bc1fcf31e" />
+<p>&nbsp;</p>
+
 
 
 
